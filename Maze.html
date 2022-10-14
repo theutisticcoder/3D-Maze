@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+	<div id="cube">
+		<div id="back1"></div>
+		<div id="back2"></div>
+		<div id="back3"></div>
+		<div id="back4"></div>
+		<div id="back5"></div>
+		<div id="back6"></div>
+		<div id="left1"></div>
+		<div id="left2"></div>
+		<div id="left3"></div>
+		<div id="left4"></div>
+		<div id="left5"></div>
+		<div id="left6"></div>
+		<div id="right1"></div>
+		<div id="right2"></div>
+		<div id="right3"></div>
+		<div id="right4"></div>
+		<div id="right5"></div>
+		<div id="right6"></div>
+		<div id="top"></div>
+		<div id="bottom"></div>
+	</div>
+	<title>3D Maze</title>
+	<script>
+		document.addEventListener('keypress', function (e) {
+			if (e.keycode == 39) {
+				e.preventDefault();
+				let cube = document.getElementById('cube');
+				cube.style.transform = "translateX(-10px)";
+			}
+		});
+	</script>
+	<style>
+
+#back1 {
+			transform: translateZ(-250px) translateY(0px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, rgb(255, 94, 0), black);
+			position: absolute;
+		}
+		#left1 {
+			transform: rotateY(90deg) translateX(-250px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, red, black);
+			position: absolute;
+			transform-origin: left;
+		}
+#left2 {
+			transform: rotateY(90deg) translateX(-250px) translateY(500px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, red, black);
+			position: absolute;
+			transform-origin: left;
+		}
+#left3 {
+			transform: rotateY(90deg) translateX(-250px) translateY(1000px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, red, black);
+			position: absolute;
+			transform-origin: left;
+		}
+#left4 {
+			transform: rotateY(90deg) translateX(-250px) translateY(1500px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, red, black);
+			position: absolute;
+			transform-origin: left;
+		}
+#left5 {
+			transform: rotateY(90deg) translateX(-250px) translateY(2000px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, red, black);
+			position: absolute;
+			transform-origin: left;
+		}
+#left6 {
+			transform: rotateY(90deg) translateX(-250px) translateY(2500px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, red, black);
+			position: absolute;
+			transform-origin: left;
+																									 }
+		#right1 {
+			transform: rotateY(90deg) translateX(250px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, purple, black);
+			position: absolute;
+			transform-origin: right;
+		}
+#right2 {
+			transform: rotateY(90deg) translateX(250px) translateY(500px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, purple, black);
+			position: absolute;
+			transform-origin: right;
+		}
+#right3 {
+			transform: rotateY(90deg) translateX(250px) translateY(1000px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, purple, black);
+			position: absolute;
+			transform-origin: right;
+		}
+#right4 {
+			transform: rotateY(90deg) translateX(250px) translateY(1500px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, purple, black);
+			position: absolute;
+			transform-origin: right;
+		}
+#right5 {
+			transform: rotateY(90deg) translateX(250px) translateY(2000px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, purple, black);
+			position: absolute;
+			transform-origin: right;
+		}
+#right6 {
+			transform: rotateY(90deg) translateX(250px) translateY(2500px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, purple, black);
+			position: absolute;
+			transform-origin: right;
+		}
+
+		#top {
+			transform: rotateX(90deg) translateY(-250px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, royalblue, black);
+			position: absolute;
+			transform-origin: top;
+
+		}
+
+		#bottom {
+			transform: rotateX(-90deg) translateY(250px) translateZ(250px);
+			height: 500px;
+			width: 500px;
+			background-image: radial-gradient(black, green, black);
+			position: absolute;
+			transform-origin: bottom;
+		}
+
+		#cube {
+			top: 500px;
+			transform-style: preserve-3d;
+			position: relative;
+			transform: rotateX(-150deg) translateZ(500px) rotateY;
+				}
+
+	</style>
+</body>
+
+</html>
