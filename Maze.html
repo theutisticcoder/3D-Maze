@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,170 +5,193 @@
 </head>
 
 <body>
-	<div id="cube">
-		<div id="back1"></div>
-		<div id="back2"></div>
-		<div id="back3"></div>
-		<div id="back4"></div>
-		<div id="back5"></div>
-		<div id="back6"></div>
-		<div id="left1"></div>
-		<div id="left2"></div>
-		<div id="left3"></div>
-		<div id="left4"></div>
-		<div id="left5"></div>
-		<div id="left6"></div>
-		<div id="right1"></div>
-		<div id="right2"></div>
-		<div id="right3"></div>
-		<div id="right4"></div>
-		<div id="right5"></div>
-		<div id="right6"></div>
-		<div id="top"></div>
-		<div id="bottom"></div>
+	<div id="scene">
+		<div id="cube">
+			<div id="back1"></div>
+			<div id="right1"></div>
+			<div id="front"></div>
+			<div id="left1"></div>
+			<div id="leftpassage"></div>
+			<div id="leftpassage2"></div>
+			<div id="leftpassageb"></div>
+			<div id="leftpassaget"></div>
+			<div id="top"></div>
+			<div id="bottom"></div>
+		</div>
 	</div>
+
+
 	<title>3D Maze</title>
 	<script>
-		document.addEventListener('keypress', function (e) {
-			if (e.keycode == 39) {
+		var cube = document.getElementById('cube');
+		var a = 0;
+		document.addEventListener('keydown', function (e) {
+
+			a = parseInt(a);
+
+			if (e.key == "ArrowUp") {
 				e.preventDefault();
-				let cube = document.getElementById('cube');
-				cube.style.transform = "translateX(-10px)";
+				a += 50;
+				console.log(a);
+				cube.style.transform = "translateZ(" + a + "px) perspective(" + (a * 2) + "px)";
+				if (e.repeat) {
+					e.preventDefault();
+					a += 50;
+					console.log(a);
+					cube.style.transform = "translateZ(" + a + "px) perspective(" + (a * 2) + "px)";
+				}
 			}
+				if (a >= 10000 && cube.style.left != 0 && e.key == "ArrowLeft") {
+											e.preventDefault();
+					a = 0;
+					cube.style.transform = "translateZ(10000px) perspective(20000px)";
+						a += 50;
+						console.log(a);
+						cube.style.left = a + "px";
+						if (e.repeat) {
+							e.preventDefault();
+							a += 50;
+							cube.style.left = a + "px";
+					}
+				}
+					else if (a >= 10000 && cube.style.left != 0 && e.key == "ArrowRight") {
+						e.preventDefault();
+						a -= 50;
+						console.log(a);
+						cube.style.left = a + "px";
+						if (e.repeat) {
+							e.preventDefault();
+							a -= 50;
+							cube.style.left = a + "px";
+					}
+				}
+			if (e.key == "ArrowDown" && a > 0) {
+				e.preventDefault();
+				a -= 50;
+				cube.style.transform = "translateZ(" + a + "px) perspective(" + (a * -2) + "px)";
+				if (e.repeat) {
+					e.preventDefault();
+					a -= 50;
+					cube.style.transform = "translateZ(" + a + "px) perspective(" + (a*-2) + "px)";
+				}
+		}
 		});
 	</script>
 	<style>
+		#leftpassage {
+			width: 10000px;
+			height: 1000px;
+			transform: translateZ(-10500px) translateX(-10000px);
+			background-image: radial-gradient(black, red, black);
+			position: absolute;
+		}
 
-#back1 {
-			transform: translateZ(-250px) translateY(0px);
-			height: 500px;
-			width: 500px;
+		#leftpassage2 {
+			width: 10000px;
+			height: 1000px;
+			transform: translateZ(-9500px) translateX(-10000px);
+			background-image: radial-gradient(black, red, black);
+			position: absolute;
+		}
+
+		#leftpassaget {
+			width: 10000px;
+			height: 1000px;
+			transform: translateX(10000px) translateZ(10000px) rotateX(90deg) translateY(500px);
+			background-image: radial-gradient(black, red, black);
+			position: absolute;
+		}
+
+		body {
+			background-color: black;
+		}
+
+		#back1 {
+			transform: translateZ(-11000px);
+			height: 1000px;
+			width: 1000px;
 			background-image: radial-gradient(black, rgb(255, 94, 0), black);
 			position: absolute;
 		}
+
 		#left1 {
-			transform: rotateY(90deg) translateX(-250px);
-			height: 500px;
-			width: 500px;
+			transform: rotateY(90deg) translateX(4000px) translateZ(-5000px);
+			height: 1000px;
+			width: 10000px;
 			background-image: radial-gradient(black, red, black);
 			position: absolute;
-			transform-origin: left;
 		}
-#left2 {
-			transform: rotateY(90deg) translateX(-250px) translateY(500px);
-			height: 500px;
-			width: 500px;
-			background-image: radial-gradient(black, red, black);
-			position: absolute;
-			transform-origin: left;
-		}
-#left3 {
-			transform: rotateY(90deg) translateX(-250px) translateY(1000px);
-			height: 500px;
-			width: 500px;
-			background-image: radial-gradient(black, red, black);
-			position: absolute;
-			transform-origin: left;
-		}
-#left4 {
-			transform: rotateY(90deg) translateX(-250px) translateY(1500px);
-			height: 500px;
-			width: 500px;
-			background-image: radial-gradient(black, red, black);
-			position: absolute;
-			transform-origin: left;
-		}
-#left5 {
-			transform: rotateY(90deg) translateX(-250px) translateY(2000px);
-			height: 500px;
-			width: 500px;
-			background-image: radial-gradient(black, red, black);
-			position: absolute;
-			transform-origin: left;
-		}
-#left6 {
-			transform: rotateY(90deg) translateX(-250px) translateY(2500px);
-			height: 500px;
-			width: 500px;
-			background-image: radial-gradient(black, red, black);
-			position: absolute;
-			transform-origin: left;
-																									 }
+
 		#right1 {
-			transform: rotateY(90deg) translateX(250px);
-			height: 500px;
-			width: 500px;
+			transform: rotateY(90deg) translateX(4000px) translateZ(-4000px);
+			height: 1000px;
+			width: 10000px;
 			background-image: radial-gradient(black, purple, black);
 			position: absolute;
-			transform-origin: right;
 		}
-#right2 {
-			transform: rotateY(90deg) translateX(250px) translateY(500px);
-			height: 500px;
-			width: 500px;
-			background-image: radial-gradient(black, purple, black);
-			position: absolute;
-			transform-origin: right;
-		}
-#right3 {
-			transform: rotateY(90deg) translateX(250px) translateY(1000px);
-			height: 500px;
-			width: 500px;
-			background-image: radial-gradient(black, purple, black);
-			position: absolute;
-			transform-origin: right;
-		}
-#right4 {
-			transform: rotateY(90deg) translateX(250px) translateY(1500px);
-			height: 500px;
-			width: 500px;
-			background-image: radial-gradient(black, purple, black);
-			position: absolute;
-			transform-origin: right;
-		}
-#right5 {
-			transform: rotateY(90deg) translateX(250px) translateY(2000px);
-			height: 500px;
-			width: 500px;
-			background-image: radial-gradient(black, purple, black);
-			position: absolute;
-			transform-origin: right;
-		}
-#right6 {
-			transform: rotateY(90deg) translateX(250px) translateY(2500px);
-			height: 500px;
-			width: 500px;
-			background-image: radial-gradient(black, purple, black);
-			position: absolute;
-			transform-origin: right;
-		}
+
+
 
 		#top {
-			transform: rotateX(90deg) translateY(-250px);
-			height: 500px;
-			width: 500px;
-			background-image: radial-gradient(black, royalblue, black);
+			transform: rotateX(90deg) rotateZ(90deg) translateY(5000px) translateX(-5000px) translateZ(500px);
+			height: 1000px;
+			width: 11000px;
+			background-image: radial-gradient(black, yellow, black);
 			position: absolute;
-			transform-origin: top;
-
 		}
 
 		#bottom {
-			transform: rotateX(-90deg) translateY(250px) translateZ(250px);
-			height: 500px;
-			width: 500px;
+			transform: rotateX(90deg) rotateZ(90deg) translateX(-5000px) translateY(5000px) translateZ(-500px);
+			height: 1000px;
+			width: 11000px;
 			background-image: radial-gradient(black, green, black);
 			position: absolute;
-			transform-origin: bottom;
 		}
 
 		#cube {
-			top: 500px;
+			transform: perspective(100px) translateZ(50px) rotateX(30deg);
 			transform-style: preserve-3d;
-			position: relative;
-			transform: rotateX(-150deg) translateZ(500px) rotateY;
-				}
+			position: absolute;
+		}
 
+
+		.forward {
+			animation-name: forward;
+			animation-duration: 5s;
+			animation-iteration-count: 1;
+			-webkit-animation-fill-mode: forwards;
+		}
+
+		.left {
+			animation-name: leftmove;
+			animation-duration: 5s;
+			animation-iteration-count: 1;
+			-webkit-animation-fill-mode: forwards;
+		}
+
+		@keyframes forward {
+			0% {
+				transform: translateZ(-50px) perspective(100px) rotateX(30deg);
+			}
+
+			100% {
+				transform: translateZ(-11000px) perspective(10000px) rotateX(0deg);
+			}
+		}
+
+		@keyframes leftmove {
+			0% {
+				transform: translateZ(-11000px) perspective(10000px)
+			}
+
+
+			50% {
+				transform: translateZ(-11000px) perspective(10000px) translateX(9000px) rotateY(0deg);
+			}
+
+			100% {
+				transform: translateZ(-11000px) perspective(10000px) translateX(9000px) rotateY(-90deg);
+			}
 	</style>
 </body>
 
